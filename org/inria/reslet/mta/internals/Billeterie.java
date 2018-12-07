@@ -1,4 +1,4 @@
-package Classes;
+package org.inria.reslet.mta.internals;
 
 public class Billeterie extends Thread {
 	public int nb_billets_billeterie;

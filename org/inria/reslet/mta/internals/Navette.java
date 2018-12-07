@@ -1,4 +1,5 @@
-package Classes;
+package org.inria.reslet.mta.internals;
+
 public class Navette extends Thread {
 	public int places_navette;
 	public Attraction attraction;

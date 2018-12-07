@@ -1,4 +1,4 @@
-package Classes;
+package org.inria.reslet.mta.internals;
 
 import java.util.ArrayList;
 

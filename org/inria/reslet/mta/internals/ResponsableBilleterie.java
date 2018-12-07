@@ -1,4 +1,4 @@
-package Classes;
+package org.inria.reslet.mta.internals;
 
 public class ResponsableBilleterie extends Thread {
 	public int nb_ticket_rechargement;
