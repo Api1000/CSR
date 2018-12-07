@@ -11,9 +11,21 @@ public class Navette extends Thread {
 		this.id_navette = id_navette;
 		this.places_navette = places_navette;
 		this.attraction = attraction;
-		this.personnes_dans_navette = 0;
+		/*this.personnes_dans_navette = 0;
 		this.fin_du_tour = false;
-		this.setDaemon(true);
+		this.setDaemon(true);*/
+	}
+	
+	public int getPlacesNavette() {
+		return this.places_navette;
+	}
+
+	public int getPersonnesDansNavette() {
+		return this.personnes_dans_navette;
+	}
+
+	public int getIDNavette() {
+		return this.id_navette;
 	}
 
 	public synchronized Navette monterDansNavette(int id_client) throws InterruptedException {
@@ -22,7 +34,7 @@ public class Navette extends Thread {
 			wait();
 		}
 		System.out.println("Le client " + id_client + " monte dans la navette " + id_navette + " dans l'attraction "
-				+ attraction.getIDAttraction());
+				+ attraction.getNameAttraction());
 		this.personnes_dans_navette++;
 		System.out.println("Il y a " + this.personnes_dans_navette + " personnes dans la navette " + this.id_navette
 				+ " " + "pour un total de " + this.places_navette + " places dans la navette");
@@ -35,21 +47,9 @@ public class Navette extends Thread {
 			wait();
 		}
 		System.out.println("Le client " + id_client + " descend de la navette " + this.id_navette
-				+ " dans l'attraction " + attraction.getIDAttraction());
+				+ " dans l'attraction " + attraction.getNameAttraction());
 		this.personnes_dans_navette--;
 		notifyAll();
-	}
-
-	public int getPlacesNavette() {
-		return this.places_navette;
-	}
-
-	public int getPersonnesDansNavette() {
-		return this.personnes_dans_navette;
-	}
-
-	public int getIDNavette() {
-		return this.id_navette;
 	}
 
 	public synchronized void setFinDuTour(boolean fin) {
