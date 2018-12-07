@@ -1,7 +1,6 @@
 package org.inria.reslet.mta.internals;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Clients extends Thread {
 	public int nb_billets_achetes;
