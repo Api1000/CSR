@@ -5,6 +5,7 @@ public class Billeterie extends Thread {
 	public boolean achat_en_cours;
 	//public boolean rupture;
 	
+	
 	public Billeterie(int nb_billets_billeterie) {
 		this.nb_billets_billeterie = nb_billets_billeterie;
 	//	this.rupture = false;
@@ -26,6 +27,10 @@ public class Billeterie extends Thread {
 			System.out.println("Il reste " + this.nb_billets_billeterie + " tickets dans la billeterie");
 		}
 		notifyAll();
+	}
+	
+	public int getBilleterie() {
+		return this.nb_billets_billeterie;
 	}
 	
 }

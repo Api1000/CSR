@@ -16,28 +16,32 @@ public class Parc {
 	}
 	
 	public void init() {
-		this.clients = new ArrayList<Clients>();
-		for(int i=0; i< 50; i++) {
-			clients.add(new Clients(1, this.attractions, i));
-		}
 		this.billeterie = new Billeterie(20);
 		this.attractions = new ArrayList<Attraction>();
-		Attraction a1 = new Attraction(1, 100, 100);
-		Attraction a2 = new Attraction(1, 500, 200);
+		this.clients = new ArrayList<Clients>();
+		Attraction a1 = new Attraction(1, 400, 200);
+		Attraction a2 = new Attraction(2, 400, 200);
 		this.navettes1 = new ArrayList<Navette>();
 		this.navettes2 = new ArrayList<Navette>();
+		
 		Navette n1 = new Navette(10, a1, 1);
 		Navette n2 = new Navette(10, a1, 2);
-		Navette n3 = new Navette(15, a2, 3);
-		Navette n4 = new Navette(15, a2, 4);
 		navettes1.add(n1);
 		navettes1.add(n2);
+		a1.setListeNavettes(navettes1);
+		
+		Navette n3 = new Navette(15, a2, 3);
+		Navette n4 = new Navette(15, a2, 4);
 		navettes2.add(n3);
 		navettes2.add(n4);
+		a2.setListeNavettes(navettes2);
+		
 		attractions.add(a1);
 		attractions.add(a2);
 		this.rb = new ResponsableBilleterie(1, this.billeterie);
-		
+		for(int i=1; i<2; i++) {
+			clients.add(new Clients(1, this.attractions, i, this.billeterie));
+		}
 
 	}
 	

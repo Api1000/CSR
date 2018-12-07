@@ -23,15 +23,15 @@ public class Attraction extends Thread  {
 		while(est_a_quai) {
 			wait();
 		}
-		this.num_navette_quai = navette_a_quai;
+		//this.num_navette_quai = navette_a_quai;
 		System.out.println("La navette numéro " + getIDNavetteQuai().id_navette + " de l'attraction "+
-		this.id_attraction + "arrive à quai.");
+		this.id_attraction + " arrive à quai.");
 		this.est_a_quai = true;
 	}
 	
 	public synchronized void parsDuQuai(int navette_a_quai) {
 		System.out.println("La navette numéro " + getIDNavetteQuai().id_navette + " de l'attraction "+
-				this.id_attraction + "pars du quai" );
+				this.id_attraction + " pars du quai" );
 		this.est_a_quai = false;
 		notifyAll();
 	}
