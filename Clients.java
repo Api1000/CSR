@@ -53,15 +53,14 @@ public class Clients extends Thread {
 		return "Je suis le client n° " + this.id_client;
 	}
 
-	public synchronized void run() {
+	public void run() {
 		try {
-			Navette n;
 			billeterie.vendreBillets(nb_billets_achete, this);
 			for(Attraction a : attractions) {
+				//System.out.println(a.nb_places_navette);
 				while(nb_attraction_effectue != 2) {
-					while((n= a.getNavette().monteDansNavette(this)) == null) {
-					}
-					System.out.println("coucou");
+					Navette n = a.getNavette();
+					n.monteDansNavette(this);
 					while(!a.quai_vide) {}; //tant que le quai n'est pas vide, le client ne sleep pas le temps de l'attraction
 					sleep(a.get_temps_attraction());
 					n.descendreNavette(this);

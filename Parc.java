@@ -1,11 +1,10 @@
 package Classes;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Parc extends Thread{
-	public static List<Clients> clients;
+	public List<Clients> clients;
 	public List<Attraction> attractions;
 	public Billeterie billeterie;
 	public ResponsableBilleterie rb;
